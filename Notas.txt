@@ -1,0 +1,8 @@
+CAV => Covertir A Vector
+AT => Input de Codigo
+AV => Input de texto
+CAT => Covertir A Texto
+-------------------
+V #.#
+Primer numero = vercion del algoritmo 
+Segundo numero = numero de mejora general

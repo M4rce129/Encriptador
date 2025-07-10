@@ -1,0 +1,9 @@
+---> V1.1
+HELP => pedir ayuda
+TEXT => Texto a codigo 
+CODE => codigo a texto
+---> V1.2
+EXIT => Serar el programa
+---> V1.3
+INFO => Informacion del programa
+PEZ => PEZ 
