@@ -14,5 +14,4 @@
     LLaves de desencriptado 
     ID de los usuarios
 | 2.5 ------------------------------------------------------------------------------------------>
-    Creasion de filtro de contraseña
     Mejora a la ayuda (comando HELP)

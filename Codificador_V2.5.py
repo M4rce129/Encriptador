@@ -1,7 +1,7 @@
 import os
 import sys
 import time
-
+#Crear contraseña y Log IN
 base = list("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .,:;!?()[]{}\"'*+-/")
 
 Usuarios = ["Opetmgbat", "Xfefet", "Itubeh", "Qjutxk", "EnbL", "Ehhf", "Ftkvxe", "Cbgtcgmf"]
