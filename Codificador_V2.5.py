@@ -73,7 +73,7 @@ def CAT(vector):
     return texto
 
 def Help():
-    print("\033[36m>>Lista de Comandos\033[32m")
+    print("\033[36m>>Lista de Comandos\033[36m")
     print("HELP => Pedir ayuda")
     print("TEXT => Texto a código")
     print("CODE => Código a texto")
