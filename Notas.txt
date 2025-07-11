@@ -6,3 +6,12 @@ CAT => Covertir A Texto
 V #.#
 Primer numero = vercion del algoritmo 
 Segundo numero = numero de mejora general
+
+-------------------
+TIPOS DE COMENTARIOS
+
+//comentarios normales
+*comentarios importantes
+!advertencias o errores
+?preguntas o notas de seguimiento
+TODOtareas pendientes
