@@ -4,9 +4,12 @@ AV => Input de texto
 CAT => Covertir A Texto
 -------------------
 V #.#
-Primer numero = vercion del algoritmo 
-Segundo numero = numero de mejora general
-
+Primer numero = Vercion del algoritmo 
+Segundo numero = Numero de mejora general
+-------------------
+A #.#
+Primer numero = Funcion agrgada
+Segundo numero = Numero de edicion
 -------------------
 TIPOS DE COMENTARIOS
 

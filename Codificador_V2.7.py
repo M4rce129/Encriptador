@@ -1,6 +1,8 @@
 import os
 import sys
 import time
+# * URL del lanzador de la herramienta
+LAUNCHER_URL = ""
 
 # * Base de caracteres válidos para codificación
 base = list("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .,:;!?()[]{}\"'*+-/")
@@ -103,7 +105,8 @@ def Help():
     print("CODE => Convertir código en texto")
     print("EXIT => Salir del programa")
     print("INFO => Mostrar información del programa")
-    print("\033[30m-Entra al archivo\033[36m Read_MY_First\033[30m y revisa el tutorial-")
+    print("LAUNCH => Abrir el lanzador de la herramienta")
+    print("\033[30m-Entra al archivo\033[36m Manual de uso\033[30m y revisa el tutorial-")
     print("si lo boraste descargalo en el launcher-  \033[0m")
 
 # TODO reviar a la pajina de descarga de la herramienta y documentación
