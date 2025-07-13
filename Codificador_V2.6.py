@@ -103,6 +103,10 @@ def Help():
     print("CODE => Convertir código en texto")
     print("EXIT => Salir del programa")
     print("INFO => Mostrar información del programa")
+    print("\033[30m-Entra al archivo\033[36m Read_MY_First\033[30m y revisa el tutorial-")
+    print("si lo boraste descargalo en el launcher-  \033[0m")
+
+# TODO reviar a la pajina de descarga de la herramienta y documentación
 
 # * Procesa los comandos ingresados por el usuario
 def OPTION(opcion):
@@ -158,16 +162,7 @@ def LOG_IN(nombre, lista):
             return i  # * Usuario encontrado
     return None  # ! Usuario no encontrado
 
-# --- Inicio del programa ---
-print("\033[36m>> ENCRIPTER_Tool")
-wait(1)
-
-# * Ingreso de usuario
-print("\033[32m>> Ingresar Nombre de Usuario:")
-USER = input("<< ").strip()
-LOCAL_USE = LOG_IN(USER, Usuarios)
-
-# --- Inicio del programa ---
+# TODO Inicio del programa ---------------------------------------------------------------------->
 print("\033[36m>> HERRAMIENTA DE ENCRIPTADO")
 wait(1)
 
@@ -183,10 +178,11 @@ if LOCAL_USE is not None:
     TRY = input("<<").strip()
     TRY = KeyPut(TRY)  # * Se encripta con Atbash para comparar con KeyWord
     if TRY == KeyWord:
+        print(">> Bienvenido\033[30m  -Escribe HELP para ver comandos-  \033[0m")
+        print(f"\033[36m>> {USER.upper()} (ID #{LOCAL_USE})\033[32m")
+        print()
         while True:
             # * Interfaz del menú principal
-            print(">> Bienvenido\033[30m  -Escribe HELP para ver ayuda-  \033[0m")
-            print(f"\033[36m>> {USER.upper()} (ID #{LOCAL_USE})\033[32m")
             print("\033[32m", end="")
             entrada = input("<< ").strip().upper()
             OPTION(entrada)
