@@ -24,4 +24,5 @@
 |V2.7 ----------------------------------------------------------------------------------------->
     Creacion del launcher (sin trabajar)
     El Manual de uso (sin trabajar)
-    Preparativos para funcion Launch
+    Creacion de funcion launch sin configurar 
+    Corecion ortografica

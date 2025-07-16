@@ -1,8 +1,9 @@
 import os
 import sys
 import time
-# * URL del lanzador de la herramienta
-LAUNCHER_URL = ""
+# * URL del lanzador de la herramienta 
+# TODO Colocar la URL del lanzador de la herramienta cuando la cree
+LAUNCHER_URL = "" 
 
 # * Base de caracteres válidos para codificación
 base = list("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .,:;!?()[]{}\"'*+-/")
@@ -107,9 +108,16 @@ def Help():
     print("INFO => Mostrar información del programa")
     print("LAUNCH => Abrir el lanzador de la herramienta")
     print("\033[30m-Entra al archivo\033[36m Manual de uso\033[30m y revisa el tutorial-")
-    print("si lo boraste descargalo en el launcher-  \033[0m")
+    print("-Si lo boraste descargalo en el launcher-\033[0m")
 
-# TODO reviar a la pajina de descarga de la herramienta y documentación
+# * Abre el lanzador de la herramienta
+def Launch(LAUNCHER_URL):
+    if LAUNCHER_URL:
+        print("\033[36m>> Abriendo lanzador...\033[32m")
+        wait(1)
+        os.system(f"start {LAUNCHER_URL}")  
+    else:
+        print("\033[31m#ERROR\033[0m")  # ! Error: URL no definida
 
 # * Procesa los comandos ingresados por el usuario
 def OPTION(opcion):
@@ -136,6 +144,8 @@ def OPTION(opcion):
             PROGRAM_INFO()
             print("LOCAL ID #", LOCAL_USE)
             print()
+        case "LAUNCH":
+            Launch(LAUNCHER_URL)
         case _:
             print("\033[31m#ERROR\033[0m")  # ! Comando no reconocido
 
@@ -144,7 +154,9 @@ def PROGRAM_INFO():
     ruta = os.path.abspath(sys.argv[0])
     nombre = os.path.basename(ruta)
     tamaño = os.path.getsize(ruta)
-    print("\033[36m>> INFORMACIÓN DEL PROGRAMA\033[32m")
+    print("\033[36m>> INFORMACIÓN DEL USUARIO:\033[32m")
+    print(f"\033[36m>> {USER.upper()} (ID #{LOCAL_USE})\033[32m")
+    print("\033[36m>> INFORMACIÓN DEL PROGRAMA:\033[32m")
     print(" - Nombre:", nombre)
     print(" - Ruta:  ", ruta)
     print(" - Tamaño:", f"{tamaño} bytes ({tamaño / 1024:.2f} KB)")
