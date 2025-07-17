@@ -26,3 +26,6 @@
     El Manual de uso (sin trabajar)
     Creacion de funcion launch sin configurar 
     Corecion ortografica
+|V2.8 ----------------------------------------------------------------------------------------->
+    Manual de uso en linea
+    Ajustes a tutorial

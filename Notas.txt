@@ -7,10 +7,6 @@ V #.#
 Primer numero = Vercion del algoritmo 
 Segundo numero = Numero de mejora general
 -------------------
-A #.#
-Primer numero = Funcion agrgada
-Segundo numero = Numero de edicion
--------------------
 TIPOS DE COMENTARIOS
 
 //comentarios normales

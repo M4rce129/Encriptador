@@ -2,8 +2,8 @@ import os
 import sys
 import time
 # * URL del lanzador de la herramienta 
-# TODO Colocar la URL del lanzador de la herramienta cuando la cree
-LAUNCHER_URL = "" 
+# TODO Colocar la URL del Manual de la herramienta cuando la cree
+MANUAL_URL = "https://youtu.be/z34bWo7csl0" 
 
 # * Base de caracteres válidos para codificación
 base = list("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .,:;!?()[]{}\"'*+-/")
@@ -106,16 +106,17 @@ def Help():
     print("CODE => Convertir código en texto")
     print("EXIT => Salir del programa")
     print("INFO => Mostrar información del programa")
-    print("LAUNCH => Abrir el lanzador de la herramienta")
-    print("\033[30m-Entra al archivo\033[36m Manual de uso\033[30m y revisa el tutorial-")
-    print("-Si lo boraste descargalo en el launcher-\033[0m")
+    print("MANUAL => Abrir el Manual de la herramienta")
+    print("\033[30m-Entra el comando\033[36m MANUAL\033[30m y revisa el tutorial-")
 
 # * Abre el lanzador de la herramienta
-def Launch(LAUNCHER_URL):
-    if LAUNCHER_URL:
+def Launch(MANUAL_URL):
+    if MANUAL_URL:
         print("\033[36m>> Abriendo lanzador...\033[32m")
         wait(1)
-        os.system(f"start {LAUNCHER_URL}")  
+        os.system(f"start {MANUAL_URL}")  
+        print("\033[36m>> Lanzador abierto\033[32m")
+        print()
     else:
         print("\033[31m#ERROR\033[0m")  # ! Error: URL no definida
 
@@ -144,8 +145,8 @@ def OPTION(opcion):
             PROGRAM_INFO()
             print("LOCAL ID #", LOCAL_USE)
             print()
-        case "LAUNCH":
-            Launch(LAUNCHER_URL)
+        case "MANUAL":
+            Launch(MANUAL_URL)
         case _:
             print("\033[31m#ERROR\033[0m")  # ! Comando no reconocido
 
