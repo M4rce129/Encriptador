@@ -30,3 +30,7 @@
     Manual de uso en linea
     Ajustes a tutorial
     Funciones relacionadas con el portapapeles 
+    Comando clear
+    Prevencion de errores
+
+

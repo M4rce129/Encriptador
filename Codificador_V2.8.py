@@ -31,13 +31,26 @@ def KeyPut(Key):
             resultado += letra
     return resultado
 
+# * Evitar interrupciones inesperadas en la entrada del usuario
+def safe_input(mensaje):
+    try:
+        return input(mensaje)
+    except KeyboardInterrupt:
+        print("\n\033[31m#INTERUPCION POR EL USUARIO\033[0m") # ! Manejo de Ctrl+C y otras interrupciones
+        return None
+    except Exception as e:
+        print(f"\033[31m#ERROR EN ENTRADA: {type(e).__name__}: {e}\033[0m") # ! Error general en la entrada
+        return None
+
 # * Espera un número de segundos (pausa)
 def wait(segundos=1):
     time.sleep(segundos)
 
 # * Entrada validada para números enteros
 def INPUT_AV(mensaje="<< "):
-    texto = input(mensaje)
+    texto = safe_input(mensaje)
+    if texto is None:
+        return None
     if texto.isnumeric():
         return int(texto)
     else:
@@ -70,7 +83,9 @@ def OUT_CAV(vector):
 
 # * Recibe un código por consola y lo convierte en lista de números
 def INPUT_AT():
-    entrada = input(">> Ingresar CODE: ")
+    entrada = safe_input(">> Ingresar CODE: ")
+    if entrada is None:
+        return []
     elementos = entrada.split()
     vector = []
     for elem in elementos:
@@ -115,11 +130,12 @@ def Help():
     print("TEXT => Convertir texto en código")
     print("CODE => Convertir código en texto")
     print("EXIT => Salir del programa")
+    print("CLEAR => Limpiar pantalla")
     print("INFO => Mostrar información del programa")
     print("MANUAL => Abrir el Manual de la herramienta")
     print("\033[30m-Entra el comando\033[36m MANUAL\033[30m y revisa el tutorial-")
 
-# * Abre el Manual de la herramienta
+# * Abre el lanzador de la herramienta
 def Launch(MANUAL_URL):
     if MANUAL_URL:
         print("\033[36m>> Abriendo Manual...\033[32m")
@@ -130,7 +146,13 @@ def Launch(MANUAL_URL):
     else:
         print("\033[31m#ERROR\033[0m")  # ! Error: URL no definida
 
-# * Procesa los comandos ingresados por el usuario
+# * Limpia la pantalla de la consola
+def Clear():
+    """Limpia la pantalla de la consola."""
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print("\033[36m>> Pantalla limpiada\033[32m")
+
+# * Procesa la opción ingresada por el usuario
 def OPTION(opcion):
     match opcion.upper():
         case "HELP":
@@ -140,20 +162,24 @@ def OPTION(opcion):
             print("\033[0m")
             exit()
         case "TEXT":
-            texto = input(">> Ingresar TEXTO: ")
+            texto = safe_input(">> Ingresar TEXTO: ")
+            if texto is None:
+                return
             codigo = CAV(texto)
             OUT_CAV(codigo)
             if pyperclip:
                 COPIAR(" ".join(map(str, codigo)))
-            input("\033[30m>> Presiona ENTER para continuar...\033[32m")
+            safe_input("\033[30m>> Presiona ENTER para continuar...\033[32m")
             print()
         case "CODE":
             vector = INPUT_AT()
+            if not vector:
+                return
             texto = CAT(vector)
             print(">>  Ingresar CODE:", texto)
             if pyperclip:
                 COPIAR(" ".join(map(str, vector)))
-            input("\033[30m>> Presiona ENTER para continuar...\033[32m")
+            safe_input("\033[30m>> Presiona ENTER para continuar...\033[32m")
             print()
         case "INFO":
             PROGRAM_INFO()
@@ -161,8 +187,11 @@ def OPTION(opcion):
             print()
         case "MANUAL":
             Launch(MANUAL_URL)
+        case "CLEAR":
+            Clear()
         case _:
             print("\033[31m#ERROR\033[0m")  # ! Comando no reconocido
+
 
 # * Muestra información del archivo ejecutado
 def PROGRAM_INFO():
@@ -193,19 +222,25 @@ def LOG_IN(nombre, lista):
     return None  # ! Usuario no encontrado
 
 # TODO Inicio del programa ---------------------------------------------------------------------->
+
 print("\033[36m>> HERRAMIENTA DE ENCRIPTADO")
 wait(1)
 
 # * Ingreso de usuario
 print("\033[32m>> Ingresa tu nombre de usuario:")
-USER = input("<< ").strip()
+USER = safe_input("<< ")
+if USER is None:
+    exit()
+USER = USER.strip()
 LOCAL_USE = LOG_IN(USER, Usuarios)
 
 if LOCAL_USE is not None:
     wait(1)
     # * Ingreso de contraseña
     print("\033[32m>> Ingresa tu contraseña:")
-    TRY = input("<< ").strip()
+    TRY = safe_input("<< ")
+    if TRY is None:
+        exit()
     TRY = KeyPut(TRY)  # * Se encripta con Atbash para comparar con KeyWord
     if TRY == KeyWord:
         print(">> Bienvenido\033[30m  -Escribe HELP para ver comandos-  \033[0m")
@@ -214,7 +249,10 @@ if LOCAL_USE is not None:
         while True:
             # * Interfaz del menú principal
             print("\033[32m", end="")
-            entrada = input("<< ").strip().upper()
+            entrada = safe_input("<< ")
+            if entrada is None:
+                break
+            entrada = entrada.strip().upper()
             OPTION(entrada)
 else:
     print("\033[31m#ERROR: Usuario no válido\033[0m")  
