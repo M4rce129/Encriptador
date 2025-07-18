@@ -1,8 +1,10 @@
 import os
 import sys
+import pyperclip
 import time
 # * URL del lanzador de la herramienta 
 # TODO Colocar la URL del Manual de la herramienta cuando la cree
+# TODO CREA EL PUTO MANUAL
 MANUAL_URL = "https://youtu.be/z34bWo7csl0" 
 
 # * Base de caracteres válidos para codificación
@@ -98,6 +100,14 @@ def CAT(vector):
                 texto += "?"
     return texto
 
+# * Copia un texto al portapapeles 
+def COPIAR(texto):
+    if pyperclip:
+        pyperclip.copy(texto)
+        print("\033[36m>> Texto copiado al portapapeles\033[32m")
+    else:
+        print("\033[31m#ERROR: No se pudo copiar (pyperclip no disponible).\033[0m")
+
 # * Muestra lista de comandos disponibles
 def Help():
     print("\033[36m>> Lista de Comandos\033[32m")
@@ -109,13 +119,13 @@ def Help():
     print("MANUAL => Abrir el Manual de la herramienta")
     print("\033[30m-Entra el comando\033[36m MANUAL\033[30m y revisa el tutorial-")
 
-# * Abre el lanzador de la herramienta
+# * Abre el Manual de la herramienta
 def Launch(MANUAL_URL):
     if MANUAL_URL:
-        print("\033[36m>> Abriendo lanzador...\033[32m")
+        print("\033[36m>> Abriendo Manual...\033[32m")
         wait(1)
         os.system(f"start {MANUAL_URL}")  
-        print("\033[36m>> Lanzador abierto\033[32m")
+        print("\033[36m>> Manual abierto\033[32m")
         print()
     else:
         print("\033[31m#ERROR\033[0m")  # ! Error: URL no definida
@@ -133,12 +143,16 @@ def OPTION(opcion):
             texto = input(">> Ingresar TEXTO: ")
             codigo = CAV(texto)
             OUT_CAV(codigo)
+            if pyperclip:
+                COPIAR(" ".join(map(str, codigo)))
             input("\033[30m>> Presiona ENTER para continuar...\033[32m")
             print()
         case "CODE":
             vector = INPUT_AT()
             texto = CAT(vector)
             print(">>  Ingresar CODE:", texto)
+            if pyperclip:
+                COPIAR(" ".join(map(str, vector)))
             input("\033[30m>> Presiona ENTER para continuar...\033[32m")
             print()
         case "INFO":
@@ -191,7 +205,7 @@ if LOCAL_USE is not None:
     wait(1)
     # * Ingreso de contraseña
     print("\033[32m>> Ingresa tu contraseña:")
-    TRY = input("<<").strip()
+    TRY = input("<< ").strip()
     TRY = KeyPut(TRY)  # * Se encripta con Atbash para comparar con KeyWord
     if TRY == KeyWord:
         print(">> Bienvenido\033[30m  -Escribe HELP para ver comandos-  \033[0m")
