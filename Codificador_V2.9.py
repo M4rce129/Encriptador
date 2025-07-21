@@ -3,7 +3,7 @@ import sys
 import pyperclip
 import time
 # * URL del lanzador de la herramienta 
-MANUAL_URL = "https://encriptador-five-pi.vercel.app/" 
+MANUAL_URL = "https://encriptador-zd6m.vercel.app/" 
 
 # * Base de caracteres válidos para codificación
 base = list("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .,:;!?()[]{}\"'*+-/")
