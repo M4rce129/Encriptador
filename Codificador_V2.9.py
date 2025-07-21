@@ -3,9 +3,7 @@ import sys
 import pyperclip
 import time
 # * URL del lanzador de la herramienta 
-# TODO Colocar la URL del Manual de la herramienta cuando la cree
-# TODO CREA EL PUTO MANUAL
-MANUAL_URL = "https://youtu.be/z34bWo7csl0" 
+MANUAL_URL = "https://encriptador-five-pi.vercel.app/" 
 
 # * Base de caracteres válidos para codificación
 base = list("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .,:;!?()[]{}\"'*+-/")

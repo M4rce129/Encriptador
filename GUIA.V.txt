@@ -32,5 +32,6 @@
     Funciones relacionadas con el portapapeles 
     Comando clear
     Prevencion de errores
-
+|V2.9 ----------------------------------------------------------------------------------------->
+    Manual de uso online
 
