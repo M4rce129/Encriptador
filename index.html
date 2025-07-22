@@ -53,12 +53,6 @@
             padding: 2px 6px;
         }
 
-        .Archive:hover {
-            background: #23263a;
-            color: #00bfff;
-            cursor: pointer;
-        }
-
         ul {
             list-style-type: none;
             padding-left: 10px;
@@ -83,10 +77,34 @@
             text-align: center;
             margin-top: 50px;
         }
+
+        .button {
+            padding: 8px 14px;
+            background-color: transparent;
+            color: #04AA6D;
+            border: 2px solid #04AA6D;
+            border-radius: 6px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 20px;
+            cursor: pointer;
+            transition-duration: 0.4s;
+        }
+
+        .button:hover {
+            background-color: #04AA6D;
+            color: #ffffff;
+    }
     </style>
 </head>
 <body>
     <div class="title">Manual de Uso – Herramienta de Encriptado</div>
+
+<script>
+    function abrirDescarga() {
+        window.open("CentroDeDESCARGA.html", "_blank");
+    }
+</script>
+
     <div class="normal">
         Esta herramienta permite codificar y decodificar mensajes usando un sistema personalizado de encriptación.<br>
         Además, cuenta con autenticación de usuarios y utilidades para facilitar su uso desde la consola.
@@ -132,3 +150,9 @@
     </ul>
 
     <hr>
+    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 30px;">
+        <button onclick="abrirDescarga()" class="button">Centro de Descarga</button>
+        <span style="color: #ffff66; font-style: italic; font-size: 14px;">
+            Si no tienes el programa entra al centro de descarga para obtenerlo.
+        </span>
+</div>
