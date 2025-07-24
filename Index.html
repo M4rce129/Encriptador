@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Centro De Descarga</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://www.sigesa.com/wp-content/uploads/2019/02/corazonblanco.png" type="image/png">
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+<script>
+function DescargaWindows() {
+}
+
+function verificarYDescargar(url, nombreArchivo) {
+    fetch(url, { method: 'HEAD' })
+        .then(response => {
+            if (response.ok) {
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = nombreArchivo;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            } else {
+                showWarning('No se encontró el archivo. Código: ' + response.status);
+            }
+        })
+        .catch(error => {
+            showWarning('Error de descarga: ' + error.message);
+        });
+}
+
+function DescargaMac() {
+    showWarning('¡Error! No está disponible el archivo para macOS.');
+}
+
+function DescargaLinux() {
+    showWarning('¡Error! No está disponible el archivo para Linux.');
+}
+
+function showWarning(text) {
+    document.querySelectorAll('.mensaje-error').forEach(el => el.remove());
+
+    const mensaje = document.createElement('p');
+    mensaje.textContent = text;
+    mensaje.classList.add('mensaje-error', 'error');
+    document.body.appendChild(mensaje);
+
+    setTimeout(() => {
+        mensaje.remove();
+    }, 2500);
+}
+</script>
+
+<div class="title">Centro de descarga – Herramienta de Encriptado</div>
+
+<div class="normal">
+    Bienvenido al Centro de Descarga de la Herramienta de Encriptado. Aquí obtendrás los archivos necesarios para el funcionamiento del programa.<br>
+    Elige la opción que se ajuste a tu sistema operativo.
+</div>
+<hr>
+
+<span class="Carpet"># Windows.EXE</span>
+<button onclick="DescargaWindows()" class="button">Descargar</button>
+<hr>
+
+<span class="Carpet"># macOS.Mach-O</span>
+<button onclick="DescargaMac();" class="button">Descargar</button>
+<hr>
+
+<span class="Carpet"># Linux.ELF</span>
+<button onclick="DescargaLinux();" class="button">Descargar</button>
+
+</body>
+</html>
