@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manual De Uso</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://www.sigesa.com/wp-content/uploads/2019/02/corazonblanco.png" type="image/png">
+    <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+    <div class="title">Manual de Uso – Herramienta de Encriptado</div>
+
+<script>
+    function abrirDescarga() {
+        window.open("CentroDeDESCARGA.html", "_blank");
+    }
+</script>
+
+    <div class="normal">
+        Esta herramienta permite codificar y decodificar mensajes usando un sistema personalizado de encriptación.<br>
+        Además, cuenta con autenticación de usuarios y utilidades para facilitar su uso desde la consola.
+
+        El programa se maneja a través de palabras clave o comandos que el usuario debe ingresar en la consola.<br>
+        Las entradas de información en la consola se indican con <b>&lt;&lt;</b> y las salidas con <b>&gt;&gt;</b>.<br>
+
+    </div>
+    <hr>
+
+    <span class="Carpet">Inicio de Sesión</span>
+    <ul>
+        <li class="Archive">1. Ingresa tu nombre de usuario cuando el programa lo solicite.</li>
+        <li class="Archive">2. Ingresa la LLAVE de acceso. Si los datos son correctos, accederás al menú principal.</li>
+    </ul>
+
+    <span class="Carpet">Comandos Disponibles</span>
+    <ul>
+        <li class="Archive"><span class="keyword">HELP</span> – Muestra la lista de comandos disponibles y una breve descripción de cada uno.</li>
+        <li class="Archive"><span class="keyword">TEXT</span> – Convierte un texto en un código encriptado. Escribe <span class="keyword">TEXT</span> y luego ingresa el texto que deseas codificar.</li>
+        <li class="Archive"><span class="keyword">CODE</span> – Convierte un código encriptado de vuelta a texto. Escribe <span class="keyword">CODE</span> y luego ingresa la secuencia de números generada por la opción TEXT.</li>
+        <li class="Archive"><span class="keyword">EXIT</span> – Sale del programa de forma segura.</li>
+        <li class="Archive"><span class="keyword">CLEAR</span> – Limpia la pantalla de la consola para una mejor visualización.</li>
+        <li class="Archive"><span class="keyword">INFO</span> – Muestra información sobre el usuario actual y detalles del programa.</li>
+        <li class="Archive"><span class="keyword">MANUAL</span> – Abre este manual o el enlace al tutorial en video.</li>
+    </ul>
+
+    <span class="Carpet">Consejos de Uso</span>
+    <ul>
+        <li class="Archive">Asegúrate de ingresar correctamente el nombre de usuario y la LLAVE para evitar errores.</li>
+        <li class="Archive">Si ingresas un carácter no soportado, falla algun proseso o es denegado en el programa se mostrará un mensaje de <span class="keyword">#ERROR</span>.</li>
+        <li class="Archive">Usa <span class="keyword">CLEAR</span> para limpiar la pantalla si la consola se ve saturada.</li>
+        <li class="Archive">Para salir del programa, usa <span class="keyword">EXIT</span> en cualquier momento.</li>
+        <li class="Archive">Si necesitas ver la lista de comandos en cualquier momento, escribe <span class="keyword">HELP</span>.</li>
+    </ul>
+
+
+    <span class="Carpet">Errores Comunes</span>
+    <ul>
+        <li class="Archive error">Usuario o contraseña incorrectos: El programa terminará si los datos no coinciden.</li>
+        <li class="Archive warning">Interrupción con Ctrl+C: El programa detecta la interrupción y muestra un mensaje amigable.</li>
+        <li class="Archive error">Caracteres no válidos: Se mostrarán como <b>?</b> al decodificar.</li>
+    </ul>
+
+    <hr>
+    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 30px;">
+        <button onclick="abrirDescarga()" class="button">Centro de Descarga</button>
+        <span style="color: #ffff66; font-style: italic; font-size: 14px;">
+            Si no tienes el programa entra al centro de descarga para obtenerlo.
+        </span>
+</div>
