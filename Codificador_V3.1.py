@@ -188,7 +188,7 @@ def OPTION(opcion):
             OUT_CAV(codigo)
             if pyperclip:
                 COPIAR(" ".join(map(str, codigo)))
-            safe_input("\033[2m>> Presiona ENTER para continuar...\033[32m")
+            safe_input("\033[2m>> Presiona ENTER para continuar...\033[32m \033[0m")
             print()
         case "CODE":
             vector = INPUT_AT()
@@ -198,7 +198,7 @@ def OPTION(opcion):
             print(">>  Ingresar CODE:", texto)
             if pyperclip:
                 COPIAR(" ".join(map(str, vector)))
-            safe_input("\033[2m>> Presiona ENTER para continuar...\033[32m")
+            safe_input("\033[2m>> Presiona ENTER para continuar...\033[32m\033[0m")
             print()
         case "INFO":
             PROGRAM_INFO()
