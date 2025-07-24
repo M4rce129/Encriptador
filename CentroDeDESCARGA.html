@@ -9,13 +9,22 @@
 <body>
 <script>
 function DescargaWindows() {
-    const url = 'https://tu-proyecto.vercel.app/appEXE.zip'; // reemplaza con tu dominio real
+    if (/Android|iPhone|iPad/i.test(navigator.userAgent)) {
+        Warm('⚠️ Este archivo es para Windows y no puede ejecutarse en tu celular.');
+        return;
+    }
+
+    const url = 'https://encriptador-zd6m.vercel.app/appEXE.zip';  // Tu dominio real
     verificarYDescargar(url, 'herramienta-encriptado-appEXE.zip');
 }
 
 function verificarYDescargar(url, nombreArchivo) {
+    mostrarIconoDescarga();
+
     fetch(url, { method: 'HEAD' })
         .then(response => {
+            ocultarIconoDescarga();
+
             if (response.ok) {
                 const a = document.createElement('a');
                 a.href = url;
@@ -28,34 +37,44 @@ function verificarYDescargar(url, nombreArchivo) {
             }
         })
         .catch(error => {
+            ocultarIconoDescarga();
             Warm('Error al intentar descargar: ' + error.message);
         });
-}
-
-function DescargaMac() {
-    Warm('¡Error! No está disponible el archivo para macOS.');
-}
-
-function DescargaLinux() {
-    Warm('¡Error! No está disponible el archivo para Linux.');
 }
 
 function Warm(Text) {
     const mensaje = document.createElement('p');
     mensaje.textContent = Text;
-    mensaje.classList.add('error');
+    mensaje.classList.add('mensaje-error');
 
     // Eliminar anteriores
     document.querySelectorAll('.mensaje-error').forEach(el => el.remove());
 
-    mensaje.classList.add('mensaje-error');
     document.body.appendChild(mensaje);
 
     setTimeout(() => {
         mensaje.remove();
     }, 1500);
 }
+
+function mostrarIconoDescarga() {
+    const icon = document.createElement('img');
+    icon.src = 'https://i.imgur.com/U5kX9B5.gif'; // Ícono de carga
+    icon.id = 'descarga-icono';
+    icon.style.width = '40px';
+    icon.style.position = 'fixed';
+    icon.style.bottom = '10px';
+    icon.style.right = '10px';
+    icon.style.zIndex = '999';
+    document.body.appendChild(icon);
+}
+
+function ocultarIconoDescarga() {
+    const icon = document.getElementById('descarga-icono');
+    if (icon) icon.remove();
+}
 </script>
+
 
     <div class="title">Centro de descarga – Herramienta de Encriptado</div>
 
