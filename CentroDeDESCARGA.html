@@ -9,22 +9,13 @@
 <body>
 <script>
 function DescargaWindows() {
-    if (/Android|iPhone|iPad/i.test(navigator.userAgent)) {
-        Warm('⚠️ Este archivo es para Windows y no puede ejecutarse en tu celular.');
-        return;
-    }
-
-    const url = 'https://encriptador-zd6m.vercel.app/appEXE.zip';  // Tu dominio real
+    const url = 'https://encriptador-zd6m.vercel.app/appEXE.zip'; // URL corregida
     verificarYDescargar(url, 'herramienta-encriptado-appEXE.zip');
 }
 
 function verificarYDescargar(url, nombreArchivo) {
-    mostrarIconoDescarga();
-
     fetch(url, { method: 'HEAD' })
         .then(response => {
-            ocultarIconoDescarga();
-
             if (response.ok) {
                 const a = document.createElement('a');
                 a.href = url;
@@ -33,21 +24,28 @@ function verificarYDescargar(url, nombreArchivo) {
                 a.click();
                 document.body.removeChild(a);
             } else {
-                Warm('No se pudo encontrar el archivo. Código: ' + response.status);
+                Warm('No se encontró el archivo. Código: ' + response.status);
             }
         })
         .catch(error => {
-            ocultarIconoDescarga();
-            Warm('Error al intentar descargar: ' + error.message);
+            Warm('Error de descarga: ' + error.message);
         });
+}
+
+function DescargaMac() {
+    Warm('¡Error! No está disponible el archivo para macOS.');
+}
+
+function DescargaLinux() {
+    Warm('¡Error! No está disponible el archivo para Linux.');
 }
 
 function Warm(Text) {
     const mensaje = document.createElement('p');
     mensaje.textContent = Text;
-    mensaje.classList.add('mensaje-error');
+    mensaje.classList.add('mensaje-error', 'error');
 
-    // Eliminar anteriores
+    // Eliminar mensajes previos
     document.querySelectorAll('.mensaje-error').forEach(el => el.remove());
 
     document.body.appendChild(mensaje);
@@ -56,43 +54,26 @@ function Warm(Text) {
         mensaje.remove();
     }, 1500);
 }
-
-function mostrarIconoDescarga() {
-    const icon = document.createElement('img');
-    icon.src = 'https://i.imgur.com/U5kX9B5.gif'; // Ícono de carga
-    icon.id = 'descarga-icono';
-    icon.style.width = '40px';
-    icon.style.position = 'fixed';
-    icon.style.bottom = '10px';
-    icon.style.right = '10px';
-    icon.style.zIndex = '999';
-    document.body.appendChild(icon);
-}
-
-function ocultarIconoDescarga() {
-    const icon = document.getElementById('descarga-icono');
-    if (icon) icon.remove();
-}
 </script>
 
+<div class="title">Centro de descarga – Herramienta de Encriptado</div>
 
-    <div class="title">Centro de descarga – Herramienta de Encriptado</div>
+<div class="normal">
+    Bienvenido al Centro de Descarga de la Herramienta de Encriptado. Aquí obtendrás los archivos necesarios para el funcionamiento del programa.<br>
+    Elige la opción que se ajuste a tu sistema operativo.
+</div>
+<hr>
 
-    <div class="normal">
-        Bienvenido al Centro de Descarga de la Herramienta de Encriptado aqui obtendras los archivos necesarios para el funcionamiento del programa.<br>
-        Elige la opcion que se ajuste a tu sistema operativo 
-    </div>
-    <hr>
+<span class="Carpet"># Windows.EXE</span>
+<button onclick="DescargaWindows()" class="button">Descargar</button>
+<hr>
 
-    <span class="Carpet"># Windows.EXE</span>
-        <button onclick="DescargaWindows()" class="button">Descargar</button>
-    <hr>
+<span class="Carpet"># macOS.Mach-O</span>
+<button onclick="DescargaMac();" class="button">Descargar</button>
+<hr>
 
-    <span class="Carpet"># macOS.Mach-O</span>
-    <button onclick="DescargaMac();" class="button">Descargar</button>
-    <hr>
+<span class="Carpet"># Linux.ELF</span>
+<button onclick="DescargaLinux();" class="button">Descargar</button>
 
-    <span class="Carpet"># Linux.ELF</span>
-    <button onclick="DescargaLinux();" class="button">Descargar</button>
 </body>
 </html>
