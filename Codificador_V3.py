@@ -12,7 +12,7 @@ base = list("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .,:;
 KeyWord = "oozev"
 
 # * Lista de usuarios encriptados con desplazamiento de -19 letras
-Usuarios = ["Opetmgbat", "Xfefet", "Itubeh", "Qjutxk", "EnbL", "Ehhf", "Ftkvxe", "Cbgtcgmf"]
+Usuarios = ["Opetmgbat", "Xfefet", "Itubeh", "Qjutxk", "EnbL", "Ehhf", "Ftkvxe", "Cbgtcgmf", "Uxkxgbvx"]
 
 USER = ""          # ? Nombre de usuario actual
 LOCAL_USE = None   # ? ID del usuario autenticado
@@ -131,7 +131,7 @@ def Help():
     print("CLEAR => Limpiar pantalla")
     print("INFO => Mostrar información del programa")
     print("MANUAL => Abrir el Manual de la herramienta")
-    print("\033[30m-Entra el comando\033[36m MANUAL\033[30m y revisa el tutorial-")
+    print("\033[2m-Entra el comando\033[36m MANUAL\033[2m y revisa el tutorial-")
 
 # * Abre el lanzador de la herramienta
 def Launch(MANUAL_URL):
@@ -167,7 +167,7 @@ def OPTION(opcion):
             OUT_CAV(codigo)
             if pyperclip:
                 COPIAR(" ".join(map(str, codigo)))
-            safe_input("\033[30m>> Presiona ENTER para continuar...\033[32m")
+            safe_input("\033[2m>> Presiona ENTER para continuar...\033[32m")
             print()
         case "CODE":
             vector = INPUT_AT()
@@ -177,7 +177,7 @@ def OPTION(opcion):
             print(">>  Ingresar CODE:", texto)
             if pyperclip:
                 COPIAR(" ".join(map(str, vector)))
-            safe_input("\033[30m>> Presiona ENTER para continuar...\033[32m")
+            safe_input("\033[2m>> Presiona ENTER para continuar...\033[32m")
             print()
         case "INFO":
             PROGRAM_INFO()
@@ -241,7 +241,7 @@ if LOCAL_USE is not None:
         exit()
     TRY = KeyPut(TRY)  # * Se encripta con Atbash para comparar con KeyWord
     if TRY == KeyWord:
-        print(">> Bienvenido\033[30m  -Escribe HELP para ver comandos-  \033[0m")
+        print(">> Bienvenido\033[2m -Escribe HELP para ver comandos-  \033[0m")
         print(f"\033[36m>> {USER.upper()} (ID #{LOCAL_USE})\033[32m")
         print()
         while True:
