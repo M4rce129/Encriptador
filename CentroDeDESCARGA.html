@@ -8,16 +8,55 @@
 </head>
 <body>
 <script>
-    function DescargaWindows() {
-        
-    }
-    function DescargaMac() {
-        
-    }
-    function DescargaLinux() {
-        
-    }
+function DescargaWindows() {
+    const url = 'https://tu-proyecto.vercel.app/appEXE.zip'; // reemplaza con tu dominio real
+    verificarYDescargar(url, 'herramienta-encriptado-appEXE.zip');
+}
+
+function verificarYDescargar(url, nombreArchivo) {
+    fetch(url, { method: 'HEAD' })
+        .then(response => {
+            if (response.ok) {
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = nombreArchivo;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            } else {
+                Warm('No se pudo encontrar el archivo. Código: ' + response.status);
+            }
+        })
+        .catch(error => {
+            Warm('Error al intentar descargar: ' + error.message);
+        });
+}
+
+function DescargaMac() {
+    Warm('¡Error! No está disponible el archivo para macOS.');
+}
+
+function DescargaLinux() {
+    Warm('¡Error! No está disponible el archivo para Linux.');
+}
+
+function Warm(Text) {
+    const mensaje = document.createElement('p');
+    mensaje.textContent = Text;
+    mensaje.classList.add('error');
+
+    // Eliminar anteriores
+    document.querySelectorAll('.mensaje-error').forEach(el => el.remove());
+
+    mensaje.classList.add('mensaje-error');
+    document.body.appendChild(mensaje);
+
+    setTimeout(() => {
+        mensaje.remove();
+    }, 1500);
+}
 </script>
+
     <div class="title">Centro de descarga – Herramienta de Encriptado</div>
 
     <div class="normal">
@@ -31,10 +70,10 @@
     <hr>
 
     <span class="Carpet"># macOS.Mach-O</span>
-    <button onclick="DescargaMac()" class="button">Descargar</button>
+    <button onclick="DescargaMac();" class="button">Descargar</button>
     <hr>
 
     <span class="Carpet"># Linux.ELF</span>
-    <button onclick="DescargaLinux()" class="button">Descargar</button>
+    <button onclick="DescargaLinux();" class="button">Descargar</button>
 </body>
 </html>
